@@ -26,9 +26,9 @@ Baixe ou clone este repositório usando git clone https://github.com/EmersonGord
 Dentro do diretório, instale as dependências usando npm install.
 
 # Como executar
-Execute ng serve -o para executar a versão de desenvolvimento (diretorio SISCADAPI). Depois acesse http://localhost:4200/.
+Execute ng serve -o para executar a versão de desenvolvimento (diretorio SISCADAPI). Depois acesse "http://localhost:4200/".
 Para executar o servidor de endpoints de API, em um outro terminal na mesma pasta execute dotnet run (diretorio SISCAD). 
-A API poderá ser acessada via https://localhost:4201/api/Pessoa/.
+A API poderá ser acessada via "https://localhost:4201/api/Pessoa/".
 
 # Como compilar/construir
 Execute ng build para buildar o projeto. Para buildar a versão de produção adicione a flag --prod. Os arquivos serão armazenados do diretório dist.
