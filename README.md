@@ -1,7 +1,6 @@
 # Projeto Cadastro de Pessoas
-# Tecnologias : angular/api .NET e mongoDB
 Projeto Cadastro Pessoa
-Este projeto foi criado com o Angular CLI versão 9.
+Este projeto foi criado com o Angular CLI versão 9 no Front-End, API .NET no Back-End e banco de dados MongoDB.
 
 Você pode acessar ele pelo Github Pages. Nele, ao invés de se usar uma API de mockup, utiliza-se localStorage.
 
