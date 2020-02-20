@@ -7,4 +7,6 @@ export class Pessoa {
     Naturalidade: string;
     Nacionalidade: string;
     CPF: string;
+    dtCadastro: string;
+    dtAtualizacao: string;
 }

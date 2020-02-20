@@ -22,7 +22,7 @@ export class PessoaComponent implements OnInit {
   message = null;
   date: any;
 
-  constructor(private formbulider: FormBuilder, private pessoaService: PessoaService,private router: Router) { }
+  constructor(private formbulider: FormBuilder, private pessoaService: PessoaService, private router: Router) { }
 
 
   ngOnInit() {
@@ -54,6 +54,7 @@ export class PessoaComponent implements OnInit {
 
   CreatePessoa(pessoa: Pessoa) {
     if (this.pessoaIdUpdate == null) {
+      pessoa.dtCadastro = new Date().toDateString();
       this.pessoaService.createPessoa(pessoa).subscribe(
         () => {
           this.dataSaved = true;
@@ -64,7 +65,10 @@ export class PessoaComponent implements OnInit {
         }
       );
     } else {
+
       pessoa.Id = this.pessoaIdUpdate;
+      pessoa.dtAtualizacao = new Date().toDateString();
+
       this.pessoaService.updatePessoa(this.pessoaIdUpdate, pessoa).subscribe(() => {
         this.dataSaved = true;
         this.message = 'Registro atualizado com sucesso';
