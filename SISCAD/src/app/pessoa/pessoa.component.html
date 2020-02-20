@@ -1,11 +1,17 @@
 
-<div class="container"> 
-    <mat-card> 
-      <mat-toolbar color="accent"> 
-        <div align="center" style="color:white;text-align: right;"> 
-          SISCAD - CADASTRO DE PESSOAS
+<div class="container" > 
+    <mat-card style="width: 100vw;"> 
+
+
+
+      
+        <div align="left" style="font-size: small; cursor: pointer;"   (click)="gotoHome()"> 
+          <&nbsp;home >
         </div>   
-      </mat-toolbar> 
+     
+
+
+
     <br><br> 
       <mat-card-content> 
         <form [formGroup]="pessoaForm"(ngSubmit)="onFormSubmit()"> 
@@ -13,65 +19,82 @@
                   <tr> 
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="Nome" matTooltip="Informe o nome da pessoa" matInput placeholder="* Nome da pessoa"> 
+                        <input formControlName="Nome" matTooltip="Informe o nome da pessoa" required
+                          maxlength="30"  #input matInput placeholder="* Nome da pessoa"> 
+                          <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
                       </mat-form-field> 
                       <mat-error> 
                         <span *ngIf="!pessoaForm.get('Nome').value && pessoaForm.get('Nome').touched"></span> 
                       </mat-error> 
                     </td> 
+
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="CPF" matTooltip="Informe o CPF" matInput placeholder="* CPF"> 
+                        <input formControlName="CPF"  maxlength="14" matTooltip="Informe o CPF" matInput 
+                          placeholder="CPF" required> 
+                        <mat-hint align="end">formato 000.000.000-00</mat-hint>
                       </mat-form-field> 
-                      <mat-error> 
-                        <span *ngIf="!pessoaForm.get('CPF').value && pessoaForm.get('CPF').touched"></span> 
-                      </mat-error> 
+
+                      <div *ngIf="!pessoaForm.get('CPF').pristine && pessoaForm.get('CPF').errors">
+                        <p *ngIf="pessoaForm.get('CPF').errors.required">
+                          CPF é obrigatório.
+                        </p>
+                        <p *ngIf="pessoaForm.get('CPF').errors.cpfInvalido">
+                          Digite um CPF válido
+                        </p>
+                      </div>
                     </td> 
+
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="Sexo" matTooltip="Informe o sexo" matInput placeholder="Sexo"> 
+                        <input formControlName="Sexo" maxlength="20"  matTooltip="Informe o sexo" matInput placeholder="Sexo"> 
                       </mat-form-field> 
-                      <mat-error> 
-                        <span *ngIf="!pessoaForm.get('Sexo').value && pessoaForm.get('Sexo').touched"></span> 
-                      </mat-error> 
                     </td> 
+
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="Email" matTooltip="Informe seu email" matInput placeholder="Email"> 
+                        <input formControlName="Email"   maxlength="30" matTooltip="Informe seu email" 
+                          matInput placeholder="Email"> 
                       </mat-form-field> 
                       <mat-error> 
-                        <span *ngIf="!pessoaForm.get('Email').value && pessoaForm.get('Email').touched"></span> 
+                        <span *ngIf="pessoaForm.get('Email').hasError('email')">Email com formato errado</span> 
                       </mat-error> 
                     </td> 
                   </tr> 
-
-
-
+                  
                   <tr> 
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="DtNascimento" matTooltip="Informe a data de nascimento" matInput placeholder="Data de Nascimento"> 
+                        <input formControlName="DtNascimento" maxlength="10" matTooltip="Informe a data de nascimento"
+                           matInput placeholder="Data de Nascimento" required> 
+                           <mat-hint align="end">formato 00/00/0000</mat-hint>
                       </mat-form-field> 
-                      <mat-error> 
-                        <span *ngIf="!pessoaForm.get('DtNascimento').value && pessoaForm.get('DtNascimento').touched"></span> 
-                      </mat-error> 
-                    </td> 
-                    <td class="tbl1"> 
-                      <mat-form-field class="demo-full-width"> 
-                        <input formControlName="Naturalidade" matTooltip="Informe sua naturalidade" matInput placeholder="Naturalidade"> 
-                      </mat-form-field> 
-                      <mat-error> 
-                        <span *ngIf="!pessoaForm.get('Naturalidade').value && pessoaForm.get('Naturalidade').touched"></span> 
-                      </mat-error> 
+
+
+                      <div *ngIf="!pessoaForm.get('DtNascimento').pristine && pessoaForm.get('DtNascimento').errors">
+                        <p *ngIf="pessoaForm.get('DtNascimento').errors.required">
+                          Data de Nascimento é obrigatório.
+                        </p>
+                        <p *ngIf="pessoaForm.get('DtNascimento').errors.dataInvalida">
+                          Digite uma data válida
+                        </p>
+                      </div>
+
+ 
                     </td> 
 
                     <td class="tbl1"> 
                       <mat-form-field class="demo-full-width"> 
-                        <input formControlName="Nacionalidade" matTooltip="Informe sua nacionalidade" matInput placeholder="Nacionalidade"> 
+                        <input formControlName="Naturalidade" maxlength="30" matTooltip="Informe sua naturalidade" matInput placeholder="Naturalidade"> 
                       </mat-form-field> 
-                      <mat-error> 
-                        <span *ngIf="!pessoaForm.get('Nacionalidade').value && pessoaForm.get('Nacionalidade').touched"></span> 
-                      </mat-error> 
+        
+                    </td> 
+
+                    <td class="tbl1"> 
+                      <mat-form-field class="demo-full-width"> 
+                        <input formControlName="Nacionalidade" maxlength="30" matTooltip="Informe sua nacionalidade" matInput placeholder="Nacionalidade"> 
+                      </mat-form-field> 
+                   
                     </td> 
                 </tr> 
 
@@ -89,13 +112,13 @@
                   </tr> 
                 </table> 
            <br><br> 
-          <table class="table" align="center"> 
-              <tr ngclass="btn-primary"> 
-                <th class="tbl2">Nome da Pessoa</th>
+          <table class="table" align="center" > 
+              <tr ngclass="btn-primary" > 
+                <th class="tbl2" nowrap>Nome da Pessoa</th>
                 <th class="tbl2">CPF</th>  
                 <th class="tbl2">Sexo</th> 
                 <th class="tbl2">Email</th> 
-                <th class="tbl2">Data Nascimento</th> 
+                <th class="tbl2">Nascimento</th> 
                 <th class="tbl2">Naturalidade</th> 
                 <th class="tbl2">Nacionalidade</th> 
                 
@@ -105,7 +128,7 @@
               </tr> 
               <tr *ngFor="let pessoa of allPessoas | async"> 
                  
-                <td class="tbl2">{{pessoa.Nome}}</td> 
+                <td class="tbl2" nowrap>{{pessoa.Nome}}</td> 
                 <td class="tbl2">{{pessoa.CPF}}</td> 
                 <td class="tbl2">{{pessoa.Sexo}}</td> 
                 <td class="tbl2">{{pessoa.Email}}</td> 
@@ -113,10 +136,10 @@
                 <td class="tbl2">{{pessoa.Naturalidade}}</td> 
                 <td class="tbl2">{{pessoa.Nacionalidade}}</td> 
                 <td class="tbl2"> 
-                  <button type="button" class="btn btn-info"matTooltip="Clique no botão para Editar"(click)="loadPessoaToEdit(pessoa.Id)">Editar</button> 
+                  <button type="button" class="btn-primary"matTooltip="Clique no botão para Editar"(click)="loadPessoaToEdit(pessoa.Id)">Editar</button> 
                 </td> 
                 <td class="tbl2"> 
-                  <button type="button" class="btn btn-danger"matTooltip="Clique no botão para Deletar"(click)="deletePessoa(pessoa.Id)">Deletar</button> 
+                  <button type="button" class="btn-primary btn-danger"matTooltip="Clique no botão para Deletar"(click)="deletePessoa(pessoa.Id)">Deletar</button> 
                 </td> 
               </tr>    
             </table> 

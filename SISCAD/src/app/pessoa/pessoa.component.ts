@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PessoaService } from '../pessoa.service';
 import { Pessoa } from '../pessoa';
 
-
-
+import { Validacoes } from '../Validacoes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa',
@@ -20,21 +20,20 @@ export class PessoaComponent implements OnInit {
   allPessoas: Observable<Pessoa[]>;
   pessoaIdUpdate = null;
   message = null;
+  date: any;
 
+  constructor(private formbulider: FormBuilder, private pessoaService: PessoaService,private router: Router) { }
 
-
-
-  constructor(private formbulider: FormBuilder, private pessoaService: PessoaService) { }
 
   ngOnInit() {
     this.pessoaForm = this.formbulider.group({
       Nome: ['', [Validators.required]],
-      Sexo: ['', [Validators.required]],
-      Email: ['', [Validators.required]],
-      DtNascimento: ['', [Validators.required]],
-      Naturalidade: ['', [Validators.required]],
-      Nacionalidade: ['', [Validators.required]],
-      CPF: ['', [Validators.required]],
+      Email: ['', Validators.compose(  [Validators.email])],
+      Sexo: ['', [Validators.nullValidator]],
+      DtNascimento: ['', Validators.compose( [Validacoes.ValidaData])],
+      Naturalidade: ['', [Validators.nullValidator]],
+      Nacionalidade: ['', [Validators.nullValidator]],
+      CPF: ['', Validators.compose( [Validacoes.ValidaCpf])],
     });
     this.loadAllPessoas();
   }
@@ -114,6 +113,9 @@ export class PessoaComponent implements OnInit {
 
 
 
+  gotoHome() {
+    this.router.navigate([''] );
+   }
 
 
 
