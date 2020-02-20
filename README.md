@@ -28,7 +28,7 @@ Implementar um sistema teste de cadastro de pessoas utilizando a abordagem SPA c
 
 ## Instalação
 
-Baixe ou clone o repositório do projeto usando git clicando aqui -> [GitHub](https://github.com/EmersonGordo/projeto-cadastro-pessoas/new/V1)
+Baixe ou clone o repositório do projeto usando git clicando aqui -> [GitHub](https://github.com/EmersonGordo/projeto-cadastro-pessoas/tree/V1)
 
 O projeto é constituido de uma pasta chamada "ANGULAR" e dentro dela as seguintes pastas:
   - SISCADAPI, que contem o projeto da API back-end em .NET.
