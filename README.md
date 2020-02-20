@@ -1,7 +1,8 @@
 
 # Projeto Cadastro de Pessoas
 
-Este projeto é um simples CRUD de cadasdro de pessoas, foi criado com o Angular CLI versão 9 no Front-End, API .NET versão 3.1 no Back-End, banco de dados MongoDB Cloud e Node.js versão 6.13.
+Este projeto é um simples CRUD de cadastro de pessoas.   
+Ele foi criado com o Angular CLI versão 9 no Front-End, API .NET versão 3.1 no Back-End, banco de dados não relacional MongoDB Cloud e Node.js versão 6.13.
 ***
 
 
@@ -9,10 +10,10 @@ Este projeto é um simples CRUD de cadasdro de pessoas, foi criado com o Angular
 
 Implementar um sistema teste de cadastro de pessoas utilizando a abordagem SPA com as seguintes funcionalidades:
   
-- Criar uma pagina de cadastro de Pessoa com os seguintes campos: ID, Nome, CPF, Sexo, Email, Data de Nascimento, Naturalidade e 
-    Nacionalidade   
-- Criar na mesma pagina uma listagem dos usuários cadastrados, através de uma GRID permitindo edição e exclusão
-- Construir a estrutura do projeto utilizando o npm (gerenciador de pacotes do Node.js)
+- Criar uma pagina de cadastro de pessoa com os seguintes campos:   
+    >  Nome, CPF, Sexo, Email, Data de Nascimento, Naturalidade e Nacionalidade.   
+- Criar na mesma pagina uma listagem dos usuários cadastrados, através de uma GRID permitindo edição e exclusão.
+- Construir a estrutura do projeto utilizando o npm (gerenciador de pacotes do Node.js).
 - Implementar o consumo da API disponibilizadas, através do endpoints:   "API de Pessoa"
 ***
 
@@ -40,12 +41,12 @@ O projeto é constituido de uma pasta chamada "ANGULAR" e dentro dela as seguint
 
 Para que o projeto funcione, deverá ser iniciado os serviços do "angular" e do "dotnet" conforme descrito abaixo: 
 
-  1. API BACK-END
+  1. API BACK-END   
   Para que o front-end do projeto funcione, deverá ser aberto um prompt DOS na pasta "ANGULAR/SISCADAPIP", e digitar: "dotnet run".     
   Depois acesse http://localhost:4201/api/Pessoa/ para acessar a API.
    
-  2. FRONT-END
-  Para que o front-end do projeto funcione, deverá ser aberto um prompt DOS na pasta "ANGULAR/SISCAD", e digitar: "ng serve -o".   
+  2. FRONT-END   
+  Para que o front-end do projeto funcione, deverá ser aberto um prompt DOS na pasta "ANGULAR/SISCAD", e depois digitar: "ng serve -o".   
   Depois acesse http://localhost:4200/ para acessar a aplicação.
   
   
@@ -62,4 +63,4 @@ Os arquivos serão armazenados do diretório dist.
 ***
 
 
-# Fim.
+## Fim
